@@ -197,7 +197,7 @@ function EditTask({
             </select>
           </div>
 
-          <button type="submit" className="btn btn-light" onClick={updateTask}>
+          <button type="submit" className="btn btn-primary" onClick={updateTask}>
             Submit
           </button>
         </form>
