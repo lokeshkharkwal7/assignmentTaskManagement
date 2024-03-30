@@ -102,7 +102,7 @@ function AddTask() {
               className="form-control"
               onChange={onChange}
               id="title"
-              value={taskData.title}
+           
             />
           </div>
           <div className="mb-3">
@@ -114,7 +114,7 @@ function AddTask() {
               className="form-control"
               onChange={onChange}
               id="description"
-              value={taskData.description}
+       
             />
           </div>
 
@@ -126,7 +126,7 @@ function AddTask() {
               id="priority"
               className="form-select"
               onChange={onChange}
-              value={taskData.priority}
+          
             >
               <option value="High">High</option>
               <option value="Medium">Medium</option>
@@ -142,7 +142,7 @@ function AddTask() {
               id="category"
               className="form-select"
               onChange={onChange}
-              value={taskData.category}
+            
             >
               {categories.map((category, index) => (
                 <option key={index} value={category}>
@@ -160,7 +160,7 @@ function AddTask() {
               type="text"
               className="form-control"
               id="completed"
-              value={taskData.completed}
+            
               disabled
             />
           </div>
