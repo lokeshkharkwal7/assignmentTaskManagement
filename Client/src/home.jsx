@@ -9,6 +9,7 @@ import image from "../src/images/taskManagment.png";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTasks } from "./redux/slicers";
 import { allCategories } from "./data";
+import Spinner from "./spinner";
 
 function Home() {
   const dispatch = useDispatch();
@@ -68,6 +69,7 @@ function Home() {
       {/* <button className="btn" onClick={clicked}>
         Get Info
       </button> */}
+      {data.length === 0  && <Spinner/>}
 
       <div className="container-fluid d-flex flex-wrap">
         {data.map((task) => (
