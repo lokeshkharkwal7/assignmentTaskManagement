@@ -1,7 +1,7 @@
 import { storeSearchResult } from "../redux/slicers";
 
 export const searchTaskDb = async (dispatch, content) => {
-  const url = "http://localhost:4000";
+  const url = "https://assignment-task-management-backend.vercel.app";
   const response = await fetch(`${url}/search/${content}`, {
     method: "POST", // *GET, POST, PUT, DELETE, etc.
     headers: {

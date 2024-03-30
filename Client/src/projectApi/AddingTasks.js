@@ -1,7 +1,7 @@
 
 // Api for Creating 
 export const addingTask = async (cartProductArray) => {
-const url = 'http://localhost:4000'
+const url = 'https://assignment-task-management-backend.vercel.app'
 
     const response = await fetch(`${url}/createTask`, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.

@@ -1,5 +1,5 @@
 export const removeTaskDB = async (_id) => {
-    const url = "http://localhost:4000"
+    const url = "https://assignment-task-management-backend.vercel.app"
     const response = await fetch(`${url}/deleteTask`, {
       method: "DELETE", // *GET, POST, PUT, DELETE, etc.
       headers: {

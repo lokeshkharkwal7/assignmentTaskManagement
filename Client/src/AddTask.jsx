@@ -6,11 +6,18 @@ import { addToTask } from "./redux/slicers";
 import { allCategories } from "./data";
 
 function AddTask() {
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [taskData, setTaskData] = useState();
-  const categories = allCategories.slice(1, 13);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [taskData, setTaskData] = useState({
+    title: "",
+    description: "",
+    priority: "High",
+    category: allCategories[1],
+    completed: "Not Completed",
+  });
 
+  const categories = allCategories.slice(1, 13);
   const dispatch = useDispatch();
+
   const customStyles = {
     content: {
       top: "50%",
@@ -22,30 +29,27 @@ function AddTask() {
       width: "40rem",
     },
   };
-  function openModal() {
-    setIsOpen(true);
-  }
-  function closeModal() {
-    setIsOpen(false);
-  }
 
-  const onChange = (e) => {
-    setTaskData({
-      ...taskData,
-      [e.target.id]: e.target.value,
-    });
-    console.log(taskData);
+  const openModal = () => {
+    setIsOpen(true);
   };
 
-  const addTask = () => {
-    // adding to redux
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
+  const onChange = (e) => {
+    const { id, value } = e.target;
+    setTaskData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
+
+  const addTask = async () => {
     console.log(taskData);
-
     dispatch(addToTask(taskData));
-
-    // pushing to databse
-    addingTask(taskData);
+    await addingTask(taskData);
     closeModal();
   };
 
@@ -56,9 +60,6 @@ function AddTask() {
         onClick={openModal}
         style={{
           display: "absolute",
-
-          //   marginLeft: "40%",
-          //   marginRight: "40%",
           borderRadius: "20rem",
         }}
       >
@@ -68,14 +69,12 @@ function AddTask() {
 
       <Modal
         isOpen={modalIsOpen}
-        // onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
       >
         <div className="d-flex flex-wrap">
           <h1 className="display-5">
-            {" "}
             Please Add A Task <i className="fa-solid fa-plus fs-1 mx-1"></i>
           </h1>
           <button
@@ -95,7 +94,7 @@ function AddTask() {
 
         <form>
           <div className="mb-3 mt-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
+            <label htmlFor="title" className="form-label">
               Title
             </label>
             <input
@@ -103,10 +102,11 @@ function AddTask() {
               className="form-control"
               onChange={onChange}
               id="title"
+              value={taskData.title}
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
+            <label htmlFor="description" className="form-label">
               Description
             </label>
             <input
@@ -114,50 +114,58 @@ function AddTask() {
               className="form-control"
               onChange={onChange}
               id="description"
+              value={taskData.description}
             />
           </div>
 
           <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              priority
+            <label htmlFor="priority" className="form-label">
+              Priority
             </label>
-
-            <select id="priority" className="form-select" onChange={onChange}>
+            <select
+              id="priority"
+              className="form-select"
+              onChange={onChange}
+              value={taskData.priority}
+            >
               <option value="High">High</option>
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>
             </select>
           </div>
-          
-          <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              category
-            </label>
 
-            <select id="category" className="form-select" onChange={onChange}>
-              {categories.map((category) => (
-                <option value={category}>{category}</option>
+          <div className="mb-3">
+            <label htmlFor="category" className="form-label">
+              Category
+            </label>
+            <select
+              id="category"
+              className="form-select"
+              onChange={onChange}
+              value={taskData.category}
+            >
+              {categories.map((category, index) => (
+                <option key={index} value={category}>
+                  {category}
+                </option>
               ))}
             </select>
-            
           </div>
 
           <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">
-              completed
+            <label htmlFor="completed" className="form-label">
+              Completed
             </label>
             <input
               type="text"
               className="form-control"
-              onChange={onChange}
               id="completed"
-              value={"Not Completed"}
+              value={taskData.completed}
               disabled
             />
           </div>
 
-        
-          <button className="btn btn-primary" onClick={addTask}>
+          <button type="button" className="btn btn-primary" onClick={addTask}>
             Submit
           </button>
         </form>

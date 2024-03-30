@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 // function for making the API Call
-const host = "http://localhost:4000";
+const host = "https://assignment-task-management-backend.vercel.app";
 export const fetchTasks = createAsyncThunk("fetchTasks", async () => {
   const url = `${host}/fetchTask`;
 
@@ -31,14 +31,13 @@ let data = {
   loading: false,
   error: false,
   data: [],
-  searchedData : [] ,
+  searchedData: [],
 };
 export const timeManagementSlicer = createSlice({
   name: "TASKMANAGEMENT",
   initialState: data,
   reducers: {
     addToTask(state, action) {
-        
       const newItem = {
         title: action.payload.title,
         description: action.payload.description,
@@ -46,7 +45,6 @@ export const timeManagementSlicer = createSlice({
         category: action.payload.category,
         completed: action.payload.completed,
       };
- 
 
       //   code for sortinng the state
       const mapPriority = {
@@ -54,12 +52,13 @@ export const timeManagementSlicer = createSlice({
         Medium: 1,
         High: 0,
       };
-     
-     return {
-        ...state,
-        data: [...state.data, newItem].sort((a, b) => mapPriority[a.priority] - mapPriority[b.priority]),
-      };
 
+      return {
+        ...state,
+        data: [...state.data, newItem].sort(
+          (a, b) => mapPriority[a.priority] - mapPriority[b.priority]
+        ),
+      };
     },
     removeTask(state, action) {
       const dataAfterRemoved = state.data.filter((pObj) => {
@@ -68,18 +67,17 @@ export const timeManagementSlicer = createSlice({
       return { ...state, data: dataAfterRemoved };
     },
     taskUpdate(state, action) {
-        const { title, formData } = action.payload;
-        const updatedTasks = state.data.map((task) =>
-         {return task.title === title ? { ...task, ...formData } : task}
-        );
-        console.log(updatedTasks); // This will now log the updated array
-        return { ...state, data: updatedTasks };
-      } ,
+      const { title, formData } = action.payload;
+      const updatedTasks = state.data.map((task) => {
+        return task.title === title ? { ...task, ...formData } : task;
+      });
+      console.log(updatedTasks); // This will now log the updated array
+      return { ...state, data: updatedTasks };
+    },
 
-      storeSearchResult(state , action) {
-        return  {...state , searchedData:action.payload}
-
-      }
+    storeSearchResult(state, action) {
+      return { ...state, searchedData: action.payload };
+    },
   },
 
   extraReducers: (builder) => {
@@ -109,5 +107,5 @@ export const timeManagementSlicer = createSlice({
 export const timeManagementReducer = timeManagementSlicer.reducer;
 
 // exporting all actions to be used in the components
-export const { addToTask, removeTask, taskUpdate , storeSearchResult } =
+export const { addToTask, removeTask, taskUpdate, storeSearchResult } =
   timeManagementSlicer.actions;
