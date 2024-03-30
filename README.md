@@ -1,4 +1,4 @@
-Assignment React Task Management CRUD App with MERN Stack 
+### Assignment React Task Management CRUD App with MERN Stack 
 This project is a full-fledged React application that implements CRUD (Create, Read, Update, Delete) operations on data, leverages the MERN stack (MongoDB, Express.js, React.js, Node.js), and provides advanced features like searching and a responsive user interface.
 
 Prerequisites
