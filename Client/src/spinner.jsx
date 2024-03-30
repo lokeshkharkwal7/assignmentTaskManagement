@@ -4,7 +4,7 @@ import React from 'react'
 function Spinner() {
   return (
     <div>
-      <div className="d-flex justify-content-center text-primary">
+      <div className="d-flex justify-content-center text-primary mt-3">
   <div className="spinner-border" role="status">
     <span className="visually-hidden">Loading...</span>
   </div>
