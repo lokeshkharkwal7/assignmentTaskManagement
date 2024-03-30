@@ -1,0 +1,15 @@
+export const allCategories = [
+    "Everything",
+    "Work",
+    "Personal",
+    "Family",
+    "Health",
+    "Hobby",
+    "Finance",
+    "Personal Development",
+    "Travel",
+    "Career",
+    "Social",
+    "Home",
+    "Writing",
+  ];
