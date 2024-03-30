@@ -69,7 +69,7 @@ function Home() {
       {/* <button className="btn" onClick={clicked}>
         Get Info
       </button> */}
-      {data.length === 0  && <Spinner/>}
+      {data.length === 0  ? <Spinner/> : (
 
       <div className="container-fluid d-flex flex-wrap">
         {data.map((task) => (
@@ -85,7 +85,7 @@ function Home() {
             ></ToDoCard>
           </div>
         ))}
-      </div>
+      </div> )}
     </>
   );
 }
