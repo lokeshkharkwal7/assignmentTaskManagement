@@ -52,6 +52,7 @@ function Home() {
   return (
     <>
       <Navbar />
+        {data.length === 0  && <Spinner/>  }
       <div className="d-flex flex-wrap">
         <img
           className="img-fluid"
@@ -69,7 +70,7 @@ function Home() {
       {/* <button className="btn" onClick={clicked}>
         Get Info
       </button> */}
-      {data.length === 0  && <Spinner/>  }
+    
 
       <div className="container-fluid d-flex flex-wrap">
         {data.map((task) => (
