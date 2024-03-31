@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { searchTaskDb } from "./projectApi/Searching";
 import { useDispatch } from "react-redux";
+import { storeSearchName } from "./redux/slicers";
+
 
 function Navbar() {
   const [search, setSearch] = useState("");
