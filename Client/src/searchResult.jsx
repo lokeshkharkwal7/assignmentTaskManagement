@@ -17,7 +17,7 @@ function SearchResults() {
 
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <h2 className="text-center my-3">
         {" "}
         <i className="fa-solid fa-magnifying-glass mx-1"></i>Your Results 
