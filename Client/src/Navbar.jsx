@@ -14,6 +14,7 @@ function Navbar() {
   const searchTask = (e) => {
     e.preventDefault();
     // Saving Data to Redux Toolkit
+    dispatch(storeSearchName(search))
     searchTaskDb(dispatch, search);
     navigate("/searchTask");
   };
