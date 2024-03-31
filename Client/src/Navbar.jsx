@@ -39,25 +39,25 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link " aria-current="page" to="/">
-                  Home
+                <Link className="nav-link active" aria-current="page" to="/">
+                  <i className="fa-solid fa-house-chimney"></i> Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/home">
-                  My Tasks
+                <Link className="nav-link active" to="/home">
+                  <i className="fa-solid fa-briefcase"></i> My Tasks
                 </Link>
               </li>
-              <form className="d-flex mx-5" role="search">
+              <form className="d-flex mx-1" role="search">
                 <input
                   className="form-control me-2"
                   type="search"
                   placeholder="Search your Tasks"
                   aria-label="Search"
-                  style={{ width: "20rem" }}
+                  style={{ width: "18rem" }}
                   onChange={onChange}
                 />
-                <button className="btn btn-success mx-3" onClick={searchTask}>
+                <button className="btn btn-info " onClick={searchTask}>
                   Search
                 </button>
               </form>
