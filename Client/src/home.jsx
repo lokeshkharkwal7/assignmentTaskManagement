@@ -62,7 +62,7 @@ function Home() {
       </div>
 
       <CategoryNavbar />
-      <h2 className="mt-4 mb-4">
+      <h2 className="mt-4 mb-4 mx-3">
         {" "}
         Below is the list of tasks that are arranged as per their priority{" "}
       </h2>
