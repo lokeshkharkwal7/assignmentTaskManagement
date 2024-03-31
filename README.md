@@ -64,5 +64,6 @@ Additional Considerations
  
 Deployment:
 Deployed on Vercel live link : https://assignment-task-management-main.vercel.app  
+Since it is a free deploy please consider refreshing if stuck on any loading prompt.
  
  
