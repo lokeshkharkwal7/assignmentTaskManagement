@@ -67,7 +67,6 @@ function EditTask({
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={customStyles}
         contentLabel="Edit Task Modal"
       >
         {/* <h1>Edit The Task</h1> */}
