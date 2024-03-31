@@ -103,7 +103,7 @@ router.post('/search/:text', async (req ,resp)=>{
                 $search : req.params.text
             }
         })
-        if(status){
+        if(status.length>0){
             resp.json({
                 status : true , 
                 data : status
