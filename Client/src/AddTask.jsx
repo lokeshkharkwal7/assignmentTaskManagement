@@ -70,7 +70,6 @@ function AddTask() {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-{/*         style={customStyles} */}
         contentLabel="Example Modal"
       >
         <div className="d-flex flex-wrap">
