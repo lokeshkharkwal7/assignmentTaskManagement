@@ -31,6 +31,7 @@ let data = {
   loading: false,
   error: false,
   data: [],
+  searchText : '' ,
   searchedData: [],
 };
 export const timeManagementSlicer = createSlice({
@@ -74,9 +75,13 @@ export const timeManagementSlicer = createSlice({
       console.log(updatedTasks); // This will now log the updated array
       return { ...state, data: updatedTasks };
     },
-
+    storeSearchName(state , action){
+       return{...state , searchText : action.payload}
+    } ,
     storeSearchResult(state, action) {
-      return { ...state, searchedData: action.payload };
+      // return { ...state, searchedData: action.payload };
+      // return { ...state, searchedData:{ searchData : action.payload.data , status : action.payload.status } };
+      return {...state , searchedData : action.payload}
     },
   },
 
@@ -107,5 +112,5 @@ export const timeManagementSlicer = createSlice({
 export const timeManagementReducer = timeManagementSlicer.reducer;
 
 // exporting all actions to be used in the components
-export const { addToTask, removeTask, taskUpdate, storeSearchResult } =
+export const { addToTask, removeTask, taskUpdate, storeSearchResult, storeSearchName } =
   timeManagementSlicer.actions;
