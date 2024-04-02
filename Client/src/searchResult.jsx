@@ -6,11 +6,11 @@ import Spinner from "./spinner";
 
 function SearchResults() {
   const results = useSelector((state) => {
-    return state.TASKMANAGEMENT.searchedData
+    return state.TASKMANAGEMENT.searchedData;
   });
-  const searchedValue = useSelector((state)=>{
-    return state.TASKMANAGEMENT.searchText
-  })
+  const searchedValue = useSelector((state) => {
+    return state.TASKMANAGEMENT.searchText;
+  });
   const clicked = () => {
     console.log(results);
   };
@@ -20,13 +20,15 @@ function SearchResults() {
       {/* <Navbar /> */}
       <h2 className="text-center my-3">
         {" "}
-        <i className="fa-solid fa-magnifying-glass mx-1"></i>Your Results 
+        <i className="fa-solid fa-magnifying-glass mx-1"></i>Your Results
       </h2>
 
       {results.length === 0 ? (
         <Spinner />
       ) : results[0] === "No Data" ? (
-        <h1 className="text-center">Sorry No Result Found for the {searchedValue}</h1>
+        <h2 className="text-center text-secondary">
+          Sorry No Result Found for the {searchedValue}
+        </h2>
       ) : (
         <div className="container-fluid d-flex  flex-row flex-wrap">
           {results.map((task) => {

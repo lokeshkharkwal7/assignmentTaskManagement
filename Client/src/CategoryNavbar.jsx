@@ -45,7 +45,9 @@ function CategoryNavbar(filter) {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
+ 
                   <i className="fa-regular fa-rectangle-list mx-1"></i> Category
+ 
                 </a>
                 <ul className="dropdown-menu">
                   {/* Map over unique categories to create dropdown items */}

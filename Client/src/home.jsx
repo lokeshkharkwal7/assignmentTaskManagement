@@ -6,6 +6,9 @@ import Navbar from "./Navbar";
 import CategoryNavbar from "./CategoryNavbar";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTasks } from "./redux/slicers";
+ 
+import { allCategories } from "./data";
+ 
 import Spinner from "./spinner";
 
 function Home() {
@@ -49,11 +52,13 @@ function Home() {
   return (
     <>
       <Navbar />
+ 
       {data.length === 0 && (
         <div className="mt-4">
           <Spinner />
         </div>
       )}
+ 
       <div className="d-flex flex-wrap">
         <img
           className="img-fluid"
@@ -73,7 +78,10 @@ function Home() {
       </div>
 
       <CategoryNavbar />
+ 
       <h2 className="mt-5 mb-4 mx-3">
+ 
+   
         {" "}
         Below is the list of tasks that are arranged as per their priority{" "}
       </h2>
@@ -81,6 +89,7 @@ function Home() {
       {/* <button className="btn" onClick={clicked}>
         Get Info
       </button> */}
+
       {data.length === 0 ? (
         <Spinner />
       ) : (
@@ -100,6 +109,7 @@ function Home() {
           ))}
         </div>
       )}
+ 
     </>
   );
 }

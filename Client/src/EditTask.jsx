@@ -67,7 +67,6 @@ function EditTask({
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={customStyles}
         contentLabel="Edit Task Modal"
       >
         {/* <h1>Edit The Task</h1> */}
@@ -76,7 +75,7 @@ function EditTask({
             {" "}
             Edit The Task <i className="fa-solid fa-pen mx-1"></i>
           </h1>
-          <button
+          {/* <button
             className="btn btn-light mx-5 float-right"
             onClick={closeModal}
             style={{
@@ -88,7 +87,7 @@ function EditTask({
             }}
           >
             <i className="fa-solid fa-xmark"></i>
-          </button>
+          </button> */}
         </div>
         <form>
           <div className="mb-3 mt-3">
@@ -132,19 +131,6 @@ function EditTask({
               <option value="Low">Low</option>
             </select>
           </div>
-
-          {/* <div className="mb-3">
-            <label htmlFor="priority" className="form-label">
-              Priority
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="priority"
-              value={formData.priority}
-              onChange={handleInputChange}
-            />
-          </div> */}
 
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
@@ -197,8 +183,20 @@ function EditTask({
             </select>
           </div>
 
-          <button type="submit" className="btn btn-light" onClick={updateTask}>
+          <button
+            type="submit"
+            className="btn btn-primary"
+            onClick={updateTask}
+          >
+            <i class="fa-solid fa-circle-check mx-2"></i>
             Submit
+          </button>
+          <button
+            className="btn btn-primary   mx-3 float-right"
+            onClick={closeModal}
+          >
+            <i className="fa-solid fa-xmark mx-2"></i>
+            Close
           </button>
         </form>
       </Modal>

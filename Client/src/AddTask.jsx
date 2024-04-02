@@ -56,7 +56,7 @@ function AddTask() {
   return (
     <div>
       <button
-        className="btn btn-primary mt-3 fs-1 py-4 px-3 mb-5 mt-5 px-4 text-light"
+        className="btn btn-info mt-3 fs-3 py-4 px-3 mb-5 mt-5 px-4 text-light"
         onClick={openModal}
         style={{
           display: "absolute",
@@ -70,14 +70,13 @@ function AddTask() {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        // style={customStyles}
         contentLabel="Example Modal"
       >
         <div className="d-flex flex-wrap">
           <h1 className="display-5">
             Please Add A Task <i className="fa-solid fa-plus fs-1 mx-1"></i>
           </h1>
-          <button
+          {/* <button
             className="btn btn-light   mx-5 float-right"
             onClick={closeModal}
             style={{
@@ -89,7 +88,7 @@ function AddTask() {
             }}
           >
             <i className="fa-solid fa-xmark"></i>
-          </button>
+          </button> */}
         </div>
 
         <form>
@@ -120,12 +119,7 @@ function AddTask() {
             <label htmlFor="priority" className="form-label">
               Priority
             </label>
-            <select
-              id="priority"
-              className="form-select"
-              onChange={onChange}
-              value={taskData.priority}
-            >
+            <select id="priority" className="form-select" onChange={onChange}>
               <option value="High">High</option>
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>
@@ -136,12 +130,7 @@ function AddTask() {
             <label htmlFor="category" className="form-label">
               Category
             </label>
-            <select
-              id="category"
-              className="form-select"
-              onChange={onChange}
-              value={taskData.category}
-            >
+            <select id="category" className="form-select" onChange={onChange}>
               {categories.map((category, index) => (
                 <option key={index} value={category}>
                   {category}
@@ -158,13 +147,27 @@ function AddTask() {
               type="text"
               className="form-control"
               id="completed"
-              value={taskData.completed}
               disabled
             />
           </div>
 
           <button type="button" className="btn btn-primary" onClick={addTask}>
+            <i class="fa-solid fa-circle-check mx-2"></i>
             Submit
+          </button>
+          <button
+            className="btn btn-primary   mx-3 float-right"
+            onClick={closeModal}
+            // style={{
+            //   height: "3rem",
+            //   width: "4rem",
+            //   position: "absolute",
+            //   top: "10px",
+            //   right: 0,
+            // }}
+          >
+            <i className="fa-solid fa-xmark mx-2 "></i>
+            Close
           </button>
         </form>
       </Modal>
