@@ -56,7 +56,7 @@ function AddTask() {
   return (
     <div>
       <button
-        className="btn btn-info mt-3 fs-1 py-4 px-3 mb-5 mt-5"
+        className="btn btn-primary mt-3 fs-1 py-4 px-3 mb-5 mt-5 px-4 text-light"
         onClick={openModal}
         style={{
           display: "absolute",
@@ -70,7 +70,7 @@ function AddTask() {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        // style={customStyles}
         contentLabel="Example Modal"
       >
         <div className="d-flex flex-wrap">
@@ -78,7 +78,7 @@ function AddTask() {
             Please Add A Task <i className="fa-solid fa-plus fs-1 mx-1"></i>
           </h1>
           <button
-            className="btn btn-light mx-5 float-right"
+            className="btn btn-light   mx-5 float-right"
             onClick={closeModal}
             style={{
               height: "3rem",
@@ -102,7 +102,6 @@ function AddTask() {
               className="form-control"
               onChange={onChange}
               id="title"
-              value={taskData.title}
             />
           </div>
           <div className="mb-3">
@@ -114,7 +113,6 @@ function AddTask() {
               className="form-control"
               onChange={onChange}
               id="description"
-              value={taskData.description}
             />
           </div>
 

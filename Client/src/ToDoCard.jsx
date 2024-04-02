@@ -41,7 +41,7 @@ function ToDoCard({
   };
   const toggleComplete = (param) => {
     dispatch(taskUpdate({ title: title, formData: { completed: param } }));
-    updateTaskDb(id, { competed: param });
+    updateTaskDb(id, { completed: param });
   };
 
   return (
@@ -72,17 +72,17 @@ function ToDoCard({
             />
           </div>
 
-          {completed ? (
+          {completed === "false" ? (
             <button
               className={`btn btn-light text-dark my-1`}
-              onClick={() => toggleComplete(false)}
+              onClick={() => toggleComplete("true")}
             >
               Done <i className="fa-solid fa-check-double"></i>
             </button>
           ) : (
             <button
               className={`btn btn-light text-dark my-1`}
-              onClick={() => toggleComplete(true)}
+              onClick={() => toggleComplete("false")}
             >
               Not Done <i className="fa-regular fa-clock"></i>
             </button>

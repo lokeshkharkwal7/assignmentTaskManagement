@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCategory } from "./redux/categorySlicer";
 import { setPriority } from "./redux/PrioritySlicer";
 import { allCategories } from "./data";
+import { Link } from "react-router-dom";
 
-function CategoryNavbar() {
+function CategoryNavbar(filter) {
   const dispatch = useDispatch();
 
   const selectCategory = (category) => {
@@ -44,7 +45,7 @@ function CategoryNavbar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Category
+                  <i className="fa-regular fa-rectangle-list mx-1"></i> Category
                 </a>
                 <ul className="dropdown-menu">
                   {/* Map over unique categories to create dropdown items */}
@@ -60,7 +61,44 @@ function CategoryNavbar() {
                   ))}
                 </ul>
               </li>
-              
+
+             
+              </ul>
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <Link
+                    className="nav-link active"
+                    aria-current="page"
+                    to="/Home"
+                  >
+                    <i className="fa-solid fa-arrow-left"></i> Back to All Data
+                  </Link>
+                </li>
+              </ul>
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <Link
+                    className="nav-link active"
+                    aria-current="page"
+                    to="/category/completedUncompleted/done"
+                  >
+                    <i className="fa-solid fa-bars-progress mx-1"></i> Task
+                    Status
+                  </Link>
+                </li>
+                <li className="nav-item">
+
+
+                  <Link
+                    className="nav-link active"
+                    aria-current="page"
+                    to="/analytics"
+                  >
+                    <i className="fa-solid fa-bars-progress mx-1"></i> Task
+                    Analytics
+                  </Link>
+                </li>
+
               {/* <li className="nav-item">
                 <button
                   className="nav-link active"
