@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Bar, Doughnut, Pie } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
+import "chartjs-plugin-datalabels";
 import { allCategories } from "./data";
 function Chart({ testData }) {
   const updatedData = testData.map((data) => {
@@ -50,6 +51,8 @@ function Chart({ testData }) {
         //   "rgba(153, 102, 255, 1)",
         //   "rgba(255, 159, 64, 1)",
         // ],
+        text: ["Completed", "Not Completed"], // Text for each segment
+
         borderColor: ["rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)"], // Optional: Line color
         backgroundColor: ["#FF7F7F", "#8AD0FF"], // Optional: Fill color under the line
         borderWidth: 1, // Optional: Line width (in pixels)
@@ -69,50 +72,64 @@ function Chart({ testData }) {
       },
     ],
   };
+  let arrayCatPriorityData = [];
+  const priorities = ["Low", "Medium", "High"];
+
+  priorities.map((priority) => {
+    let temp = testData.filter((taskdata) => taskdata["priority"] === priority);
+    console.log(temp.length, priority);
+    arrayCatPriorityData.push(temp.length);
+  });
+  const catSortPriority = {
+    labels: ["Low", "Medium", "High"],
+    datasets: [
+      {
+        label: `Category Wise Sort`,
+        data: arrayCatPriorityData,
+
+        borderColor: ["rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)"], // Optional: Line color
+        backgroundColor: ["#8AD0FF"], // Optional: Fill color under the line
+        borderWidth: 1, // Optional: Line width (in pixels)
+      },
+    ],
+  };
 
   const options = {
     plugins: {
-      datalabels: {
-        // Custom label content based on data index
-        content: (context) => {
-          const label =
-            context.dataIndex === 0 ? "Task Completed" : "Not Completed Tasks";
-          return label;
-        },
-        anchor: "end", // Optional: Place labels at the end of slices
-        color: "black", // Optional: Set label text color
+      legend: {
+        display: false, // Hide the legend
+      },
+      tooltip: {
+        enabled: true, // Disable tooltips
       },
     },
-    // Optional chart configuration options
+    elements: {
+      center: {
+        text: "Completed",
+        color: "#FFF", // Text color
+        fontStyle: "Arial", // Font style
+        sidePadding: 20, // Padding around the text
+      },
+    },
+    // Other chart configuration options...
     responsive: true, // Makes the chart responsive to screen size
     maintainAspectRatio: false, // Allows for better pie chart display
-    legend: {
-      display: true, // Show the legend
-      position: "bottom", // Place the legend below the chart
-      labels: {
-        fontSize: 16, // Set legend font size
-      },
+    layout: {
+      padding: 20, // Optional: Padding around the chart
     },
-    tooltips: {
-      // Customize tooltips
-      enabled: true, // Enable tooltips
-      backgroundColor: "rgba(0, 0, 0, 0.8)", // Semi-transparent black background
-      bodyColor: "#FFF", // White text color
-      bodyFontSize: 14, // Set tooltip font size
-      callbacks: {
-        // Customize tooltip content
-        label: (context) =>
-          `${context.dataset.label}: ${
-            context.dataIndex === 0 ? true : false
-          } - ${context.data[context.dataIndex]}`,
-      },
+    animation: {
+      duration: 1000, // Animation duration in milliseconds
+      easing: "easeInOutQuart", // Easing function for the animation
     },
   };
+
   //   .chart-container {
   //     height: 400px; /* Adjust the height as desired */
   //     /* Optional: Add other styling for the chart container */
   //   }
-  const clicked = () => {};
+  const clicked = () => {
+    console.log(arrayCatPriorityData);
+  };
   return (
     <div>
       {/* <button onClick={clicked}>button</button> */}
@@ -123,6 +140,7 @@ function Chart({ testData }) {
           className="card overflow-scroll mx-1 my-1                 "
           style={{ width: "40rem" }}
         >
+          {/* for analysis of completed vs non completed  */}
           <h2 className="text-center text-secondary mt-4 mb-4">
             Completed Vs Not Completed Status
           </h2>
@@ -134,13 +152,17 @@ function Chart({ testData }) {
           style={{ width: "40rem" }}
         >
           {" "}
-          <div className="mt-5">
+          <div className="mt-3">
             {" "}
-            <Bar data={catSort} />{" "}
+            <h3 className="text-center text-secondary mb-4">
+              Category wise Data Representation
+            </h3>
+            <Bar data={catSort} />
+            <h3 className="text-center text-secondary mt-3 mb-4">
+              Priority Categorization
+            </h3>
+            <Bar data={catSortPriority} />
           </div>
-          <h2 className="text-center text-secondary mt-4 mb-4">
-            Category wise Data Representation
-          </h2>
         </div>
       </div>
     </div>

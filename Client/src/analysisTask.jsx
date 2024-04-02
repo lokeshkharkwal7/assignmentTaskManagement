@@ -38,14 +38,15 @@ function AnalysisTask() {
           </h1>
 
           <AddTask />
-          <h2 className="text-secondary text-center mt-5">
-            Please Choose The Below Options{" "}
-          </h2>
+          <h3 className="text-secondary text-center mt-5">
+            Please Choose From The Below Options{" "}
+            <i className="fa-solid fa-down-long mx-1"></i>
+          </h3>
         </div>
       </div>
 
       <CategoryNavbar />
-      <h1 className="text-center mt-4 mb-4 text-secondary">Task Analysis</h1>
+      <h1 className="text-center mt-4 mb-4 text-info">Task Analysis</h1>
       <Chart testData={raw} />
     </>
   );

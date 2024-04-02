@@ -56,7 +56,7 @@ function AddTask() {
   return (
     <div>
       <button
-        className="btn btn-info mt-3 fs-3 py-4 px-3 mb-5 mt-5 px-4 text-light"
+        className="btn btn-primary mt-3 fs-3 py-4 px-3 mb-5 mt-5 px-4 text-light"
         onClick={openModal}
         style={{
           display: "absolute",
