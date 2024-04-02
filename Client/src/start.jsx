@@ -21,7 +21,7 @@ function StartPage() {
         ></img>
         <Link to="/home" className="text-decoration-none text-dark mt-4">
           <button
-            className="btn btn-primary mt-3 mx-5 "
+            className="btn btn-primary mt-3 mx-5 border-info"
             style={{ borderRadius: "12%", height: "9rem" }}
           >
             {" "}
