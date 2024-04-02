@@ -38,7 +38,7 @@ function AnalysisTask() {
           </h1>
 
           <AddTask />
-          <h3 className="text-secondary text-center mt-5">
+          <h3 className="text-secondary text-center  mb-3">
             Please Choose From The Below Options{" "}
             <i className="fa-solid fa-down-long mx-1"></i>
           </h3>

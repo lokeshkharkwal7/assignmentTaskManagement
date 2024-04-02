@@ -148,7 +148,7 @@ function Chart({ testData }) {
         </div>
 
         <div
-          className="card overflow-scroll mx-1 my-1                 "
+          className="card overflow-scroll mx-1 my- mt-4                 "
           style={{ width: "40rem" }}
         >
           {" "}
@@ -158,7 +158,7 @@ function Chart({ testData }) {
               Category wise Data Representation
             </h3>
             <Bar data={catSort} />
-            <h3 className="text-center text-secondary mt-3 mb-4">
+            <h3 className="text-center text-secondary mt-5 mb-4">
               Priority Categorization
             </h3>
             <Bar data={catSortPriority} />
