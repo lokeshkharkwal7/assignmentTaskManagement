@@ -5,7 +5,7 @@ const schema = new mongoose.Schema({
   description: { type: String, required: true },
   priority: { type: String, required: true },
   category: { type: String, required: true },
-  completed: { type: String, default:false },
+  completed: { type: String, default:"false" },
   createdAt: { type: Date, default: Date.now },
 });
 // creating text index for searching 
